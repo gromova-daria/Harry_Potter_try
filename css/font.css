@@ -1,0 +1,55 @@
+@font-face {
+    font-family: Playpen Sans;
+    src: local("Playpen Sans"),
+        url("../fonts/PlaypenSans-Bold.woff2") format("woff2"),
+        url("../fonts/PlaypenSans-Bold.woff") format("woff"),
+        url("../fonts/PlaypenSans-Bold.eot") format("eot");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Playpen Sans;
+    src: local("Playpen Sans"),
+        url("../fonts/PlaypenSans-Medium.woff2") format("woff2"),
+        url("../fonts/PlaypenSans-Medium.woff") format("woff"),
+        url("../fonts/PlaypenSans-Medium.eot") format("eot");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: Playpen Sans;
+    src: local("Playpen Sans"),
+        url("../fonts/PlaypenSans-Regular.woff2") format("woff2"),
+        url("../fonts/PlaypenSans-Regular.woff") format("woff"),
+        url("../fonts/PlaypenSans-Regular.eot") format("eot");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: Playpen Sans;
+    src: local("Playpen Sans"),
+        url("../fonts/PlaypenSans-SemiBold.woff2") format("woff2"),
+        url("../fonts/PlaypenSans-SemiBold.woff") format("woff"),
+        url("../fonts/PlaypenSans-SemiBold.eot") format("eot");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Harry_Fonts';
+    src: local('Harry_Fonts'),
+        url('../fonts/harrypotterrussianversionofgfdtk.woff2') format('woff2'),
+        url('../fonts/harrypotterrussianversionofgfdtk.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Harry Potter University</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header header-main">
+            <a href="#" class="burger">
+                <span></span>
+            </a>
+            <div class="header__top header__top--burger-open">
+                <div class="container">
+                    <div class="header__top-inner">
+                        <a class="header__logo logo" href="index.html">
+                            <img src="image/logo.svg" alt="logo">
+
+                        </a>
+                        <nav class="header__nav">
+                            <ul class="header__nav-list">
+                                <li class="header__nav-item">
+                                    <a class=header__nav-link href="characters.html">Characters
+                                    </a>
+                                </li>
+                                <li class=" header__nav-item">
+                                    <a class=header__nav-link href="fairy_base.html">Houses</a>
+                                </li>
+                                <li class="header__nav-item">
+                                    <a class=header__nav-link href="#">Filmography</a>
+                                </li>
+                                <li class="header__nav-item">
+                                    <a class=header__nav-link href="#">About us</a>
+                                </li>
+                            </ul>
+
+
+
+                        </nav>
+                        <nav class="header__btn-box">
+                            <button class="header__top-button button">Сотворить магию</button>
+                            <div class="stars_container"> </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+        <div class="character__body">
+
+
+            <section class="section1">
+                <div id="loading">loading...</div>
+                <div id="error"></div>
+                <h2 id="section1__title">The main characters </h2>
+                <div class="character_grid" id="characters-container">
+
+
+
+                </div>
+                <div id="load-more-container" style="text-align: center; margin-top: 40px; display: none;">
+                    <button id="load-more-btn" class="load-more-button">Load More Characters</button>
+                </div>
+
+            </section>
+
+
+
+        </div>
+
+        <section class="modal_window" id="character-modal">
+            <div class="window_gen-nav">
+                <button class="translate-button button">Translate</button>
+                <img src="image/akar-icons_cross.svg" alt="Close" class="cross">
+            </div>
+            <div class="window_gen-inf">
+                <div class="gen-inf__text">
+                    <span class="grid_name gen-inf__title" id="modal-name">Harry Potter</span>
+
+                    <span class="gen-inf__text-point" id="modal-birth">Date of birth : 31.07.1980</span>
+                    <span class="gen-inf__text-point" id="modal-patronus">Patronus : stag</span>
+                </div>
+                <img src="" alt="pers" class="gen-inf__img" id="modal-image">
+            </div>
+            <div class="sub-inf__text">
+                <span class="gen-inf__text-point">Wand</span>
+                <div class="sub-inf__points" id="modal-wand">
+                    <div>wood: holly</div>
+                    <div>core: phoenix feather</div>
+                    <div>length: 11</div>
+                </div>
+                <span class="gen-inf__text-point">Alternate names:</span>
+                <div class="sub-inf__points" id="modal-alternate-names">
+                    <div>"The Boy Who Lived", "The Chosen One"</div>
+                </div>
+            </div>
+        </section>
+        <div id="modal-overlay"></div>
+
+
+
+
+
+        <script src="js/api/photoApi.js"></script>
+
+        <script src="js/api/hpApi.js"></script>
+        <script src="js/main.js"></script>
+
+</body>
+
+
+</html>
