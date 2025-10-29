@@ -1,31 +1,74 @@
-
-class WikipediaPhotoAPI {
+class HarryPotterPhotoAPI {
     constructor() {
         this.cache = new Map();
     }
 
+    async getCharacterPhoto(characterName) {
+        if (this.cache.has(characterName)) {
+            return this.cache.get(characterName);
+        }
+
+        try {
+            console.log(` проба поиска персонажа: ${characterName}`);
+            
+            
+            const characterQueries = [
+                `${characterName} character`,
+                characterName,              
+               
+                
+            ];
+            
+            for (const query of characterQueries) {
+                try {
+                    const response = await fetch(
+                        `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(query)}`
+                    );
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        
+                        if (data.thumbnail && data.thumbnail.source) {
+                            console.log(`НАЙДЕНО: ${characterName}`);
+                            this.cache.set(characterName, data.thumbnail.source);
+                            return data.thumbnail.source;
+                        }
+                    }
+                } catch (error) {
+                    continue;
+                }
+            }
+            
+            console.log(`персонаж не найден: ${characterName}`);
+            return null;
+            
+        } catch (error) {
+            console.error(`ошибка посика:`, error);
+            return null;
+        }
+    }
+
     async getActorPhoto(actorName) {
-       
         if (this.cache.has(actorName)) {
             return this.cache.get(actorName);
         }
 
         try {
-            console.log(`Поиск по википедии: ${actorName}`);
-            
+            console.log(`теперь ищем актёра: ${actorName}`);
+           
             const response = await fetch(
                 `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(actorName)}`
             );
             
             if (!response.ok) {
-                console.log(`не нашла: ${actorName}`);
+                console.log(`актёр не найден: ${actorName}`);
                 return null;
             }
             
             const data = await response.json();
             
             if (data.thumbnail && data.thumbnail.source) {
-                console.log(`нашла: ${actorName}`);
+                console.log(`найден актер: ${actorName}`);
                 this.cache.set(actorName, data.thumbnail.source);
                 return data.thumbnail.source;
             }
@@ -33,12 +76,11 @@ class WikipediaPhotoAPI {
             return null;
             
         } catch (error) {
-            console.error(`ошибка ${actorName}:`, error);
+            console.error(`ошибка поиска актера:`, error);
             return null;
         }
     }
-
-   
+//серые инициалы теперь будут, если совсем ничего нет
     createGreyCircle(characterName) {
         const initials = characterName.split(' ').map(n => n[0]).join('');
         
@@ -56,5 +98,4 @@ class WikipediaPhotoAPI {
     }
 }
 
-
-const wikipediaPhotoAPI = new WikipediaPhotoAPI();
+const hpPhotoAPI = new HarryPotterPhotoAPI();
