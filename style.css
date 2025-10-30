@@ -6,7 +6,7 @@ html, body {
 }
 
 .footer {
-    background: red !important;
+    background: #040110 !important;
     padding: 60px 0 20px;
     margin-top: 0px;
 }
@@ -1085,4 +1085,5 @@ html, body {
     }
 
 }
+
 
