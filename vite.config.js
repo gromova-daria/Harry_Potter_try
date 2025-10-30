@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/Harry_Potter/',
+  base: '/Harry_Potter_try/', 
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
