@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Harry Potter University</title>
+  <script type="module" crossorigin src="/assets/characters-B9AFyItp.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/navigation-a6OQlLNm.js">
+  <link rel="modulepreload" crossorigin href="/assets/hpApi-l0sNRNKZ.js">
+  <link rel="stylesheet" crossorigin href="/assets/navigation-DlxCMo8P.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header header-main">
+            <a href="#" class="burger">
+                <span></span>
+            </a>
+            <div class="header__top header__top--burger-open">
+                <div class="container">
+                    <div class="header__top-inner">
+                        <a class="header__logo logo" href="index.html">
+                            <img src="/assets/logo-1nNPEwTh.svg" alt="logo">
+
+                        </a>
+                        <nav class="header__nav">
+                            <ul class="header__nav-list">
+                                <li class="header__nav-item">
+                                    <a class=header__nav-link href="characters.html">Characters
+                                    </a>
+                                </li>
+                                <li class=" header__nav-item">
+                                    <a class=header__nav-link href="houses.html">Houses</a>
+                                </li>
+                                <li class="header__nav-item">
+                                    <a class=header__nav-link href="filmography.html">Filmography</a>
+                                </li>
+                                <li class="header__nav-item">
+                                    <a class=header__nav-link href="#contacts">About us</a>
+                                </li>
+                            </ul>
+
+
+
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+
+        </header>
+        <div class="character__body">
+
+
+            <section class="section1">
+                <div id="loading">loading...</div>
+                <div id="error"></div>
+                <h2 id="section1__title">The main characters </h2>
+                <div class="character_grid" id="characters-container">
+
+
+
+                </div>
+                <div id="load-more-container" style="text-align: center; margin-top: 40px; display: none;">
+                    <button id="load-more-btn" class="load-more-button">Load More Characters</button>
+                </div>
+
+            </section>
+
+
+
+        </div>
+
+        <section class="modal_window" id="character-modal">
+            <div class="window_gen-nav">
+
+                <img src="data:image/svg+xml,%3csvg%20width='25'%20height='25'%20viewBox='0%200%2025%2025'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M20.8332%2020.8334L4.1665%204.16675M20.8332%204.16675L4.1665%2020.8334'%20stroke='%23E5500F'%20stroke-width='2'%20stroke-linecap='round'/%3e%3c/svg%3e" alt="Close" class="cross">
+            </div>
+            <div class="window_gen-inf">
+                <div class="gen-inf__text">
+                    <span class="grid_name gen-inf__title" id="modal-name">Harry Potter</span>
+
+                    <span class="gen-inf__text-point" id="modal-birth">Date of birth : 31.07.1980</span>
+                    <span class="gen-inf__text-point" id="modal-patronus">Patronus : stag</span>
+                </div>
+                <img src="" alt="pers" class="gen-inf__img" id="modal-image">
+            </div>
+            <div class="sub-inf__text">
+                <span class="gen-inf__text-point">Wand</span>
+                <div class="sub-inf__points" id="modal-wand">
+                    <div>wood: holly</div>
+                    <div>core: phoenix feather</div>
+                    <div>length: 11</div>
+                </div>
+                <span class="gen-inf__text-point">Alternate names:</span>
+                <div class="sub-inf__points" id="modal-alternate-names">
+                    <div>"The Boy Who Lived", "The Chosen One"</div>
+                </div>
+            </div>
+        </section>
+        <div id="modal-overlay"></div>
+
+        <!--<div class="section1__error">
+            <span class="header__title">Where is the Internet?</span>
+            <img src="/image/shockedHarry.png" alt="">
+
+        </div>--> 
+
+        <footer class="footer" id="contacts">
+            <div class="footer__main">
+                <div class="container">
+                    <div class="footer__columns">
+                        <div class="footer__column">
+                            <img src="/assets/logo-1nNPEwTh.svg" alt="logo" class="footer__logo">
+                            <p class="footer__text">The website was created by students of educational groups 23CST-4 and 23CST-5. We put our whole soul and even a few tears into it, working with our favorite childhood characters.</p>
+                        </div>
+                        <div class="footer__column">
+                           
+                        </div>
+                        <div class="footer__column">
+                            <h3 class="footer__title">DEVELOPERS</h3>
+                            <ul class="footer__list">
+                                <li class="footer__list-item">Durnina Lilia</li>
+                                <li class="footer__list-item">Gromova Daria</li>
+                                <li class="footer__list-item">Chuprova Natalia</li>
+                                <li class="footer__list-item">Mayorova Maria</li>
+                            </ul>
+                        </div>
+                        <div class="footer__column">
+                            <h3 class="footer__title">CONTACT US</h3>
+                            <ul class="footer__list">
+                                <li class="footer__list-item">lsdurnina@edu.hse.ru</li>
+                                <li class="footer__list-item">dsgromova@edu.hse.ru </li>
+                                <li class="footer__list-item">npchuprova@edu.hse.ru</li>
+                                <li class="footer__list-item">mvmaiorova@edu.hse.ru</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="container">
+                    <button class="footer__top-button" onclick="scrollToTop()">Go to top</button>
+                </div>
+            </div>
+        </footer>
+
+        
+
+
+</body>
+
+
+
+</html>
+
+
+
