@@ -19,7 +19,9 @@ jobs:
         cache: 'npm'
     
     - name: Install dependencies
-      run: npm install
+      run: |
+        npm install
+        npx vite --version
     
     - name: Build project
       run: npm run build
