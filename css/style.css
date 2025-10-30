@@ -63,7 +63,7 @@ html, body {
 }
 
 .footer__top-button {
-    background: linear-gradient(45deg, #ad0659 0%, #f7059a 100%);
+    background: linear-gradient(54deg, #e9310c 0%, #d99e13 99.8%);
     color: white;
     border: none;
     padding: 12px 24px;
@@ -1436,5 +1436,6 @@ html, body {
     }
 }
 >>>>>>> 3c3b174 (houses page add)
+
 
 
