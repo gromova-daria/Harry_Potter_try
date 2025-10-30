@@ -776,7 +776,7 @@ html, body {
     transform: translate(-50%, -50%);
     z-index: 1000;
     display: none;
-
+    
 }
 
 #modal-overlay {
@@ -789,9 +789,6 @@ html, body {
     z-index: 999;
     display: none;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 
 .section1__error {
     margin: 36px 150px;
@@ -1340,10 +1337,6 @@ html, body {
         height: 18px;
     }
 }
-=======
-/* ========================= Два контейнера для шахматного макета ========================= */
-=======
->>>>>>> 27e0fc5 (style css small change)
 
 #houses-container {
     display: flex;
@@ -1376,14 +1369,16 @@ html, body {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 380px;
+    height: auto;
+    min-height: 300px;
 }
 
 .house_card {
     border: 2px solid #d99e13;
     border-radius: 20px;
-    width: 450px;
-    height: 380px;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
     padding: 20px;
     background-color: #fdf6e3;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -1424,19 +1419,71 @@ html, body {
 }
 
 @media (max-width: 1000px) {
-    .houses-left,
-    .houses-right {
+    .house-section {
         flex-direction: column;
+        align-items: center;
         gap: 20px;
     }
 
-    .house-card-wrapper,
+    .house-card-wrapper, 
     .house-description {
         flex: 1 1 100%;
+        max-width: 90%;
+    }
+
+    .house_card {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .house-description {
+        padding: 30px;
+        font-size: 16px;
     }
 }
+<<<<<<< HEAD
 >>>>>>> 3c3b174 (houses page add)
 
 
 
 
+=======
+
+@media (max-width: 600px) {
+    .house_card img {
+        width: 180px;
+    }
+
+    .house_name {
+        font-size: 28px;
+    }
+
+    .house-description {
+        font-size: 15px;
+        padding: 20px;
+    }
+
+    .header__row-item span {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 400px) {
+    .house_card {
+        padding: 15px;
+    }
+
+    .house_name {
+        font-size: 24px;
+    }
+
+    .house-description {
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    .house-section {
+        gap: 15px;
+    }
+}
+>>>>>>> beb403b (try to fix houses mobile version)
