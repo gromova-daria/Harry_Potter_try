@@ -1,6 +1,5 @@
 name: Deploy to GitHub Pages
 
-
 on:
   push:
     branches: [ main ]
@@ -17,12 +16,10 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '18'
-        cache: 'npm'
     
     - name: Install dependencies
       run: |
-        npm install
-        npx vite --version
+        npm install vite gh-pages --save-dev
     
     - name: Build project
       run: npm run build
