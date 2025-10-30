@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Harry Potter University</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header header-main">
+            <a href="#" class="burger">
+                <span></span>
+            </a>
+            <div class="header__top header__top--burger-open">
+                <div class="header__top-inner">
+                    <a class="header__logo logo" href="index.html">
+                        <img src="image/logo.svg" alt="logo">
+                    </a>
+                    <nav class="header__nav">
+                        <ul class="header__nav-list">
+                            <li class="header__nav-item">
+                                <a class=header__nav-link href="characters.html">Characters
+                                </a>
+                            </li>
+                            <li class=" header__nav-item">
+                                <a class=header__nav-link href="fairy_base.html">Houses</a>
+                            </li>
+                            <li class="header__nav-item">
+                                <a class=header__nav-link href="filmography.html">Filmography</a>
+                            </li>
+                            <li class="header__nav-item">
+                                <a class=header__nav-link href="#">About us</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="stars_container"> </div>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <section class="filmography-section">
+                <div class="container">
+                    <h1 class="filmography__title">Harry Potter Books</h1>
+
+                    <div class="carousel-wrapper">
+                        <div class="carousel-controls-top">
+                            <button class="carousel-btn carousel-btn-prev books-prev">
+                                <img src="image/slider_left.svg" alt="Previous" class="carousel-arrow">
+                                <img src="image/slider_left_after_mation.svg" alt="Previous"
+                                    class="carousel-arrow-hover">
+                            </button>
+
+                            <button class="carousel-btn carousel-btn-next books-next">
+                                <img src="image/slider_right.svg" alt="Next" class="carousel-arrow">
+                                <img src="image/slider_right_after_motion.svg" alt="Next" class="carousel-arrow-hover">
+                            </button>
+                        </div>
+
+                        <div class="carousel">
+                            <div class="carousel-container">
+                                <div class="carousel-track books-track">
+                                    <div class="loading-books">Loading books...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="filmography-section">
+                <div class="container">
+                    <h1 class="filmography__title">Harry Potter Movies</h1>
+
+                    <div class="carousel-wrapper">
+                        <div class="carousel-controls-top">
+                            <button class="carousel-btn carousel-btn-prev movies-prev">
+                                <img src="image/slider_left.svg" alt="Previous" class="carousel-arrow">
+                                <img src="image/slider_left_after_mation.svg" alt="Previous"
+                                    class="carousel-arrow-hover">
+                            </button>
+
+                            <button class="carousel-btn carousel-btn-next movies-next">
+                                <img src="image/slider_right.svg" alt="Next" class="carousel-arrow">
+                                <img src="image/slider_right_after_motion.svg" alt="Next" class="carousel-arrow-hover">
+                            </button>
+                        </div>
+
+                        <div class="carousel">
+                            <div class="carousel-container">
+                                <div class="carousel-track movies-track">
+                                    <div class="loading-movies">Loading movies...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <section class="modal_window" id="book-modal">
+        <div class="window_gen-nav">
+            <img src="image/akar-icons_cross.svg" alt="Close" class="cross">
+        </div>
+        <div class="window_gen-inf">
+            <div class="gen-inf__text">
+                <span class="grid_name gen-inf__title" id="book-title">Book Title</span>
+                <span class="gen-inf__text-point" id="book-serial">Serial: #1</span>
+                <span class="gen-inf__text-point" id="book-release">Release Date: 1997</span>
+                <span class="gen-inf__text-point" id="book-pages">Pages: 309</span>
+            </div>
+            <img src="" alt="Book Cover" class="gen-inf__img" id="book-image">
+        </div>
+        <div class="sub-inf__text">
+            <span class="gen-inf__text-point">Description:</span>
+            <div class="sub-inf__points" id="book-description">
+                <div>Book description will appear here...</div>
+            </div>
+        </div>
+    </section>
+    <section class="modal_window" id="movie-modal">
+        <div class="window_gen-nav">
+            <img src="image/akar-icons_cross.svg" alt="Close" class="cross">
+        </div>
+        <div class="window_gen-inf">
+            <div class="gen-inf__text">
+                <span class="grid_name gen-inf__title" id="movie-title">Movie Title</span>
+                <span class="gen-inf__text-point" id="movie-release">Release Date: 2001</span>
+                <span class="gen-inf__text-point" id="movie-runtime">Runtime: 152 min</span>
+                <span class="gen-inf__text-point" id="movie-rating">Rating: PG</span>
+            </div>
+            <img src="" alt="Movie Poster" class="gen-inf__img" id="movie-image">
+        </div>
+        <div class="sub-inf__text">
+            <span class="gen-inf__text-point">Directors:</span>
+            <div class="sub-inf__points" id="movie-directors">
+                <div>Chris Columbus</div>
+            </div>
+            <span class="gen-inf__text-point">Box Office:</span>
+            <div class="sub-inf__points" id="movie-boxoffice">
+                <div>Budget: $125 million</div>
+                <div>Revenue: $1 billion</div>
+            </div>
+        </div>
+    </section>
+
+    <div id="modal-overlay"></div>
+
+    <script src="js/api/mediaApi.js"></script>
+    <script src="js/api/hpApi.js"></script>
+    <script src="js/filmography.js"></script>
+    <script src="js/burger.js"></script>
+</body>
+
+</html>
