@@ -98,5 +98,4 @@ class HarryPotterPhotoAPI {
     }
 }
 
-const hpPhotoAPI = new HarryPotterPhotoAPI();
-export { hpPhotoAPI };
+
