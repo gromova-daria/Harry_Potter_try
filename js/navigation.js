@@ -19,6 +19,15 @@ function scrollToTop() {
 
 // Инициализация навигации
 document.addEventListener('DOMContentLoaded', function() {
+    // Обработчик для кнопки "Go to top" в футере
+    const topButton = document.querySelector('.footer__top-button');
+    if (topButton) {
+        topButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            scrollToTop();
+        });
+    }
+    
     // Обработчик для кнопки "Связаться с нами" в основном контенте
     const contactButton = document.querySelector('.header__content-buttons .button-empty');
     if (contactButton) {
