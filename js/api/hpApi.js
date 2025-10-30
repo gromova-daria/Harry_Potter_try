@@ -39,6 +39,41 @@ const HPapi = {
         }
     },
 
+    async getAllHouses() {
+        console.log('Пытаемся загрузить факультеты');
+        try {
+            const response = await fetch(`${this.url}/houses`);
+            if (!response.ok) {
+                throw new Error('Не удалось загрузить данные о факультетах');
+            }
+            const houses = await response.json();
+            console.log(`Получили ${houses.length} факультетов`);
+            return houses;
+        } catch (error) {
+            console.error('Ошибка при загрузке факультетов:', error);
+            return [];
+        }
+    },
+
+    async getStudentsByHouse(houseName) {
+        console.log(`Пытаемся загрузить студентов факультета: ${houseName}`);
+        try {
+            const apiUrl = `${this.url}/houses/${houseName}`;
+            const proxyUrl = 'https://api.allorigins.win/raw?url='; // не получалось без прокси обойти ограничения сервера
+            const response = await fetch(proxyUrl + apiUrl);
+            if (!response.ok) {
+                throw new Error(`Не удалось загрузить студентов факультета ${houseName}`);
+            }
+        
+            const students = await response.json();
+            console.log(`Получили ${students.length} студентов факультета ${houseName}`);
+            return students;
+        } catch (error) {
+            console.error('Ошибка при загрузке студентов факультета:', error);
+            return [];
+        }
+    },
+
     async getBooks() {
         console.log('Пытаемся загрузить книги');
         try {
@@ -58,7 +93,6 @@ const HPapi = {
             }));
         } catch (error) {
             console.error('Ошибка:', error);
-            return [];
         }
     },
 
@@ -81,7 +115,6 @@ const HPapi = {
             }));
         } catch (error) {
             console.error('Ошибка:', error);
-            return [];
         }
     }
 };

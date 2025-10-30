@@ -696,6 +696,7 @@ html, body {
     z-index: 999;
     display: none;
 }
+<<<<<<< HEAD
 
 
 .section1__error {
@@ -1245,3 +1246,97 @@ html, body {
         height: 18px;
     }
 }
+=======
+/* ========================= Два контейнера для шахматного макета ========================= */
+
+#houses-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.house-section {
+    display: flex;
+    gap: 30px; /* расстояние между карточкой и описанием */
+    align-items: flex-start;
+    margin-bottom: 60px;
+}
+
+.house-card-wrapper {
+    flex: 0 0 450px; /* фиксированная ширина для карточки */
+}
+
+.house-description {
+    flex: 1 1 45%;
+    font-family: Playpen Sans, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #2e242d;
+    padding: 40px;
+    padding-bottom: 60px;
+    background-color: #f8f8f8;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 380px;
+}
+
+.house_card {
+    border: 2px solid #d99e13;
+    border-radius: 20px;
+    width: 450px;
+    height: 380px;
+    padding: 20px;
+    background-color: #fdf6e3;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.house_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.house_name {
+    font-family: Harry_Fonts;
+    font-size: 36px;
+    color: #2e242d;
+    font-weight: 400;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.description-container {
+    flex: 1 1 50%; /* чтобы занимал пространство справа */
+    padding: 40px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #2e242d;
+    background-color: #f0f0f0; /* светло-серый фон */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    justify-content: space-between;
+}
+
+.house-stats {
+    margin-top: auto;
+}
+
+@media (max-width: 1000px) {
+    .houses-left,
+    .houses-right {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .house-card-wrapper,
+    .house-description {
+        flex: 1 1 100%;
+    }
+}
+>>>>>>> 3c3b174 (houses page add)
