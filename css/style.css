@@ -6,7 +6,7 @@ html, body {
 }
 
 .footer {
-    background: linear-gradient(45deg, #4d0047 0%, rgb(38, 0, 65) 100%);
+    background: linear-gradient(54deg, #e9310c 0%, #d99e13 99.8%);
     padding: 60px 0 20px;
     margin-top: 0px;
 }
@@ -1436,4 +1436,5 @@ html, body {
     }
 }
 >>>>>>> 3c3b174 (houses page add)
+
 
