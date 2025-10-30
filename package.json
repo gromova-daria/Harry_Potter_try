@@ -1,7 +1,7 @@
 {
-  "name": "harry-potter",
-  "version": "1.0.0",
+  "name": "harry-potter-website",
   "type": "module",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
