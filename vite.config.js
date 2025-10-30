@@ -1,20 +1,9 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/Harry_Potter_try/', 
+  base: '/Harry_Potter_try/',
   build: {
     outDir: 'dist',
-    assetsDir: 'assets',
-    rollupOptions: {
-      input: {
-        main: './index.html',
-        characters: './characters.html',
-        filmography: './filmography.html',
-        houses: './houses.html'
-      }
-    }
-  },
-  server: {
-    port: 3000
+    emptyOutDir: true
   }
 });
