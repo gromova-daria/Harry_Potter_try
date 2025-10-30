@@ -6,7 +6,7 @@ html, body {
 }
 
 .footer {
-    background: linear-gradient(54deg, #e9310c 0%, #d99e13 99.8%);
+    background: red !important;
     padding: 60px 0 20px;
     margin-top: 0px;
 }
@@ -1085,3 +1085,4 @@ html, body {
     }
 
 }
+
