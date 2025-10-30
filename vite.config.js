@@ -1,9 +1,21 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
+import { resolve } from 'path'
 
 export default defineConfig({
-  base: '/Harry_Potter_try/',
+  root: '.',
+  publicDir: 'public',
   build: {
     outDir: 'dist',
-    emptyOutDir: true
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        characters: resolve(__dirname, 'characters.html'),
+        filmography: resolve(__dirname, 'filmography.html'),
+        houses: resolve(__dirname, 'houses.html')
+      }
+    }
+  },
+  server: {
+    port: 3000
   }
-});
+})
