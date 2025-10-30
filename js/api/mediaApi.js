@@ -1,73 +1,123 @@
-class MediaAPI {
-    constructor() {
-        this.cache = new Map();
-    }
+import { mediaAPI } from './mediaApi.js';
+import { hpPhotoAPI } from './photoApi.js';
+const HPapi = {
+    url: 'https://potterhead-api.vercel.app/api',
 
-    async getBookCovers() {
-        if (this.cache.has('bookCovers')) {
-            return this.cache.get('bookCovers');
-        }
-
+    async getAllCharct() {
+        console.log('Пытаемся загрузить персонажей');
         try {
-            console.log('Пытаемся загрузить обложки книг');
-            const response = await fetch('https://potterapi-fedeperin.vercel.app/en/books');
+            const response = await fetch(`${this.url}/characters`);
             if (!response.ok) {
                 throw new Error('Не удалось загрузить данные');
             }
-            const covers = await response.json();
-            console.log(`Получили ${covers.length} обложек книг`);
-
-            this.cache.set('bookCovers', covers);
-            return covers;
+            const characters = await response.json();
+            console.log(`Получили ${characters.length} записей`);
+            return characters;
         } catch (error) {
             console.error('Ошибка:', error);
             return [];
         }
-    }
+    },
 
-    async getMoviePosters() {
-        if (this.cache.has('moviePosters')) {
-            return this.cache.get('moviePosters');
-        }
-
+    async getCharacterByName(characterName) {
+        console.log(`Ищем персонажа: ${characterName}`);
         try {
-            console.log('Пытаемся загрузить постеры фильмов');
-            const response = await fetch('https://www.omdbapi.com/?s=harry%20potter&apikey=6c3a2d45');
+
+            const allCharacters = await this.getAllCharct();
+            const character = allCharacters.find(char =>
+                char.name.toLowerCase() === characterName.toLowerCase()
+            );
+
+            if (character) {
+                console.log(`Нашли персонажа: ${character.name}`);
+                return character;
+            } else {
+                console.log(`Персонаж ${characterName} не найден`);
+                return null;
+            }
+        } catch (error) {
+            console.error('Ошибка при поиске персонажа:', error);
+            return null;
+        }
+    },
+
+    async getAllHouses() {
+        console.log('Пытаемся загрузить факультеты');
+        try {
+            const response = await fetch(`${this.url}/houses`);
+            if (!response.ok) {
+                throw new Error('Не удалось загрузить данные о факультетах');
+            }
+            const houses = await response.json();
+            console.log(`Получили ${houses.length} факультетов`);
+            return houses;
+        } catch (error) {
+            console.error('Ошибка при загрузке факультетов:', error);
+            return [];
+        }
+    },
+
+    async getStudentsByHouse(houseName) {
+        console.log(`Пытаемся загрузить студентов факультета: ${houseName}`);
+        try {
+            const apiUrl = `${this.url}/houses/${houseName}`;
+            const proxyUrl = 'https://api.allorigins.win/raw?url='; // не получалось без прокси обойти ограничения сервера
+            const response = await fetch(proxyUrl + apiUrl);
+            if (!response.ok) {
+                throw new Error(`Не удалось загрузить студентов факультета ${houseName}`);
+            }
+        
+            const students = await response.json();
+            console.log(`Получили ${students.length} студентов факультета ${houseName}`);
+            return students;
+        } catch (error) {
+            console.error('Ошибка при загрузке студентов факультета:', error);
+            return [];
+        }
+    },
+
+    async getBooks() {
+        console.log('Пытаемся загрузить книги');
+        try {
+            const response = await fetch(`${this.url}/books`);
             if (!response.ok) {
                 throw new Error('Не удалось загрузить данные');
             }
-            const data = await response.json();
+            const booksData = await response.json();
+            console.log(`Получили ${booksData.length} книг`);
 
-            const posters = data.Search || [];
-            console.log(`Получили ${posters.length} постеров фильмов`);
+            const bookCovers = await mediaAPI.getBookCovers();
 
-            this.cache.set('moviePosters', posters);
-            return posters;
+            return booksData.map((book, index) => ({
+                ...book,
+                cover: bookCovers[index]?.cover || mediaAPI.getDefaultBookCover(),
+                id: book.serial || index.toString()
+            }));
         } catch (error) {
             console.error('Ошибка:', error);
-            return [];
+        }
+    },
+
+    async getMovies() {
+        console.log('Пытаемся загрузить фильмы');
+        try {
+            const response = await fetch(`${this.url}/movies`);
+            if (!response.ok) {
+                throw new Error('Не удалось загрузить данные');
+            }
+            const moviesData = await response.json();
+            console.log(`Получили ${moviesData.length} фильмов`);
+
+            const moviePosters = await mediaAPI.getMoviePosters();
+
+            return moviesData.map((movie, index) => ({
+                ...movie,
+                poster: moviePosters[index]?.Poster || mediaAPI.getDefaultMoviePoster(),
+                id: movie.serial || index.toString()
+            }));
+        } catch (error) {
+            console.error('Ошибка:', error);
         }
     }
-
-    async getBookCoverByIndex(index) {
-        const covers = await this.getBookCovers();
-        return covers[index]?.cover || null;
-    }
-
-    async getMoviePosterByIndex(index) {
-        const posters = await this.getMoviePosters();
-        return posters[index]?.Poster || null;
-    }
-
-    getDefaultBookCover() {
-        return 'img/books/default.jpg';
-    }
-
-    getDefaultMoviePoster() {
-        return 'img/movies/default.jpg';
-    }
-}
-
-const mediaAPI = new MediaAPI();
-
-export { mediaAPI };
+};
+export { HPapi };
